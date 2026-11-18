@@ -1,0 +1,23 @@
+{
+  "name": "sketch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "p5": "^1.11.13"
+  },
+  "devDependencies": {
+    "@types/p5": "^1.7.7",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}
