@@ -1,19 +1,5 @@
-// Day 01: Grid of Circles
-// お題: 600x600 のキャンバスに円をグリッド状に並べ、
-//       それぞれの円のサイズ（または色）をランダムに変える。
-//
-// ヒント:
-//   - 二重の for ループで x, y を回す
-//   - p.random(min, max) で乱数
-//   - p.noLoop() で1枚絵に / p.mousePressed で p.redraw() すると楽しい
-//
-// 発展: p.noise() を使って、ランダムではなく「なめらかに」変化させてみる
-//
-// ※ TypeScript ではインスタンスモードを使うので、p5 の関数は全部 `p.` を付けて呼ぶ
-
 import p5 from "p5";
 type Size = [number, number];
-type Position = [number, number];
 const canvasSize: Size = [300, 300];
 
 const sketch = (p: p5) => {
