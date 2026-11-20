@@ -1,4 +1,7 @@
 import p5 from "p5";
+
+export const title = "Noise Line";
+
 type Size = [number, number];
 const canvasSize: Size = [300, 300];
 
@@ -35,4 +38,4 @@ const createLine = (p: p5, size: Size) => {
   };
 };
 
-new p5(sketch);
+export default sketch;

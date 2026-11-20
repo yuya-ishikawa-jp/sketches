@@ -1,4 +1,7 @@
 import p5 from "p5";
+
+export const title = "Noise Wave";
+
 type Size = [number, number];
 type Position = [number, number];
 const canvasSize: Size = [300, 300];
@@ -17,7 +20,7 @@ const main = (p: p5) => {
   };
 };
 
-new p5(main);
+export default main;
 
 function fillCanvas(p: p5, canvasSize: Size) {
   p.fill(255, 10);
