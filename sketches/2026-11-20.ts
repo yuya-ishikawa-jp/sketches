@@ -1,6 +1,6 @@
 import p5 from "p5";
 
-export const title = "Noise Wave";
+export const title = "Polar Wave";
 
 type Size = [number, number];
 type Position = [number, number];
@@ -16,7 +16,8 @@ const main = (p: p5) => {
 
   p.draw = () => {
     fillCanvas(p, CANVAS_SIZE);
-    for (let i = 0; i < 3; i++) {
+    p.translate(150, 150);
+    for (let i = 0; i < 20; i++) {
       line.draw();
     }
   };
@@ -31,25 +32,21 @@ function fillCanvas(p: p5, canvasSize: Size) {
 }
 
 function createLine(p: p5, size: Size) {
-  const CENTER_POS = size.map((x) => x / 2) as Position;
-  const SPEED = 0.02;
+  const SPEED = 0.001;
   let noiseOffset = 100.0;
   let angle = 0;
   const updatePosition = (): Position => {
-    noiseOffset += 0.07;
+    noiseOffset += 0.001;
     angle = (angle + SPEED) % p.TWO_PI;
-    const radius = p.map(p.noise(noiseOffset), 0, 1, 0, size[0] / 2);
-    return [
-      CENTER_POS[0] + radius * p.cos(angle),
-      CENTER_POS[1] + radius * p.sin(angle),
-    ];
+    const radius = p.map(p.noise(noiseOffset), 0, 1, 0, size[0] * 0.8);
+    return [radius * p.cos(angle), radius * p.sin(angle)];
   };
   let lastPosition = updatePosition();
   const draw = () => {
     p.stroke(0);
     const position = updatePosition();
     p.line(...lastPosition, ...position);
-    p.line(...CENTER_POS, ...position);
+    p.line(0, 0, ...position);
     lastPosition = position;
   };
   return {
